@@ -15,7 +15,7 @@ function LinearScale(min, max, size) {
 
 function View(left, right, upper, lower, viewportWidth, viewportHeight) {
     this.xScale = new LinearScale(left, right, viewportWidth);
-    this.yScale = new LinearScale(lower, upper, viewportHeight);
+    this.yScale = new LinearScale(upper, lower, viewportHeight);
 
     this.transX = function(x) {
         return this.xScale.trans(x);
