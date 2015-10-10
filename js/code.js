@@ -12,7 +12,7 @@ function fillRect(ctx, view, x, y, w, h) {
 function render(canvas, land) {
     var landHeight = land.length;
     var landWidth = land[0].length;
-    var canvasView = new view(0, landWidth, 0, landHeight,
+    var canvasView = new View(0, landWidth, 0, landHeight,
             canvas.width, canvas.height);
 
     var ctx = canvas.getContext("2d");

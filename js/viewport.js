@@ -1,6 +1,6 @@
 "use strict";
 
-function linearScale(min, max, size) {
+function LinearScale(min, max, size) {
     this.transDelta = function(val) {
         return val / (max - min) * size;
     }
@@ -13,9 +13,9 @@ function linearScale(min, max, size) {
 
 }
 
-function view(left, right, upper, lower, viewportWidth, viewportHeight) {
-    this.xScale = new linearScale(left, right, viewportHeight);
-    this.yScale = new linearScale(lower, upper, viewportWidth);
+function View(left, right, upper, lower, viewportWidth, viewportHeight) {
+    this.xScale = new LinearScale(left, right, viewportWidth);
+    this.yScale = new LinearScale(lower, upper, viewportHeight);
 
     this.transX = function(x) {
         return this.xScale.trans(x);
