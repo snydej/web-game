@@ -1,3 +1,8 @@
+"use strict";
+(function () {
+
+QUnit.module("viewport");
+
 QUnit.test("identity scale", function(assert) {
     var scale = new LinearScale(0, 1, 1);
     assert.equal(scale.transDelta(2), 2);
@@ -29,3 +34,4 @@ QUnit.test("view", function(assert) {
     assert.equal(view.transHeight(20), 480);
 });
 
+})();
