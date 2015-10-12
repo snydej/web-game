@@ -3,7 +3,7 @@ function fillRect(ctx, view, x, y, w, h) {
         view.transWidth(w), view.transHeight(h));
 }
 
-function mapTerrain(fn, terrain) {
+function applyTerrain(fn, terrain) {
     var terrainHeight = terrain.length;
     var terrainWidth = terrain[0].length;
 
@@ -20,7 +20,7 @@ function renderTerrainTile(context, view) {
 }
 
 function renderTerrain(context, view, terrain) {
-    mapTerrain(renderTerrainTile(context, view), terrain);
+    applyTerrain(renderTerrainTile(context, view), terrain);
 }
 
 function render(canvas, terrain) {
