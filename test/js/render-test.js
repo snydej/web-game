@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 (function () {
 
-QUnit.module("render");
+QUnit.module('render');
 
 function MockContext() {
     this.log = [];

@@ -1,18 +1,18 @@
-"use strict";
+'use strict';
 
 var TERRAIN = {
     GRASS: {
-        color: "rgb(0,255,0)",
+        color: 'rgb(0,255,0)',
         weight: 40
     },
 
     TREE:  {
-        color: "rgb(0,128,0)",
+        color: 'rgb(0,128,0)',
         weight: 2
     },
 
     WATER: {
-        color: "rgb(0,0,255)",
+        color: 'rgb(0,0,255)',
         weight: 3
     }
 };

@@ -1,3 +1,5 @@
+'use strict';
+
 function fillRect(ctx, view, x, y, w, h) {
     ctx.fillRect(view.transX(x), view.transY(y),
         view.transWidth(w), view.transHeight(h));
@@ -29,7 +31,7 @@ function render(canvas, terrain) {
     var view = new View(0, terrainWidth, 0, terrainHeight,
             canvas.width, canvas.height);
 
-    var context = canvas.getContext("2d");
+    var context = canvas.getContext('2d');
     renderTerrain(context, view, terrain);
 }
 
