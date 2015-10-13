@@ -24,7 +24,7 @@ function Enum() {
 
 Enum.prototype.typeCheck = function(enumValue) {
     if (enumValue._typeRef !== this._typeRef)
-        throw 'value is not from this enum';
+        throw new TypeError('value is not from this enum');
 }
 
 function _EnumMap(enumType, map) {

@@ -47,7 +47,23 @@ QUnit.test('enum maps error if enum is wrong type', function(assert) {
     var otherEnum = new Enum('B', 'A');
     assert.raises(function () {
         map.get(otherEnum.A);
-    }, /value is not from this enum/);
+    }, TypeError);
+});
+
+QUnit.test('enum maps can have missing keys', function(assert) {
+    var simpleEnum = new Enum('A', 'B');
+    var map = simpleEnum.map({B: 'Hello'});
+
+    assert.equal(map.get(simpleEnum.A), undefined);
+    assert.equal(map.get(simpleEnum.B), 'Hello');
+});
+
+QUnit.test('enum maps cannot have keys not in the enum', function(assert) {
+    var simpleEnum = new Enum('A', 'B');
+    assert.raises(function () {
+        simpleEnum.map({A: 42, B: 'Hello', C: 'foobar'});
+    }, TypeError);
+
 });
 
 })();
