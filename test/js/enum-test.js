@@ -47,7 +47,7 @@ QUnit.test('enum maps error if enum is wrong type', function(assert) {
     var otherEnum = new Enum('B', 'A');
     assert.raises(function () {
         map.get(otherEnum.A);
-    }, 'key type wrong');
+    }, /value is not from this enum/);
 });
 
 })();

@@ -21,6 +21,11 @@ function Enum() {
     }
 }
 
+Enum.prototype.typeCheck = function(enumValue) {
+    if (enumValue.enumType !== this)
+        throw 'value is not from this enum';
+}
+
 function EnumMap(enumType, map) {
     this.enumType = enumType;
     this.table = [];
@@ -29,9 +34,7 @@ function EnumMap(enumType, map) {
 }
 
 EnumMap.prototype.get = function(enumValue) {
-    if (enumValue.enumType !== this.enumType)
-        throw 'key wrong type';
-
+    this.enumType.typeCheck(enumValue);
     return this.table[enumValue.index];
 };
 
