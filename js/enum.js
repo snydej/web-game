@@ -22,12 +22,16 @@ function Enum() {
 }
 
 function EnumMap(enumType, map) {
+    this.enumType = enumType;
     this.table = [];
     for (var key in map)
         this.table[enumType[key].index] = map[key];
 }
 
 EnumMap.prototype.get = function(enumValue) {
+    if (enumValue.enumType !== this.enumType)
+        throw 'key wrong type';
+
     return this.table[enumValue.index];
 };
 

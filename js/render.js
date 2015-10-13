@@ -14,9 +14,15 @@ function applyTerrain(fn, terrain) {
             fn(terrain[y][x], x, y);
 }
 
+var tileColors = TileType.map({
+    GRASS: 'rgb(0,255,0)',
+    TREE: 'rgb(0,128,0)',
+    WATER: 'rgb(0,0,255)'
+});
+
 function renderTerrainTile(context, view) {
     return function(tile, x, y) {
-        context.fillStyle = tile.color;
+        context.fillStyle = tileColors.get(tile);
         fillRect(context, view, x, y, 1, 1);
     };
 }

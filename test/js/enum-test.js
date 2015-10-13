@@ -40,4 +40,14 @@ QUnit.test('enum maps map enum elements to values', function (assert) {
     assert.equal(map.get(simpleEnum.B), 'Hello');
 });
 
+QUnit.test('enum maps error if enum is wrong type', function(assert) {
+    var simpleEnum = new Enum('A', 'B');
+    var map = simpleEnum.map({ A: 42, B: 'Hello'});
+
+    var otherEnum = new Enum('B', 'A');
+    assert.raises(function () {
+        map.get(otherEnum.A);
+    }, 'key type wrong');
+});
+
 })();

@@ -22,13 +22,13 @@ QUnit.test('render 2 tiles', function(assert) {
     var view = new View(0, 2, 0, 2, 20, 20);
     var tileRenderer = renderTerrainTile(context, view);
 
-    tileRenderer(TERRAIN.GRASS, 0, 1);
-    tileRenderer(TERRAIN.WATER, 1, 0);
+    tileRenderer(TileType.GRASS, 0, 1);
+    tileRenderer(TileType.WATER, 1, 0);
 
     assert.deepEqual(context.log, [
-        ['set fillStyle', TERRAIN.GRASS.color],
+        ['set fillStyle', tileColors.get(TileType.GRASS)],
         ['fillRect', 0, 10, 10, 10],
-        ['set fillStyle', TERRAIN.WATER.color],
+        ['set fillStyle', tileColors.get(TileType.WATER)],
         ['fillRect', 10, 0, 10, 10]
     ]);
 });

@@ -1,42 +1,31 @@
 'use strict';
 
-var TERRAIN = {
-    GRASS: {
-        color: 'rgb(0,255,0)',
-        weight: 40
-    },
+var TileType = new Enum('GRASS', 'TREE', 'WATER');
 
-    TREE:  {
-        color: 'rgb(0,128,0)',
-        weight: 2
-    },
-
-    WATER: {
-        color: 'rgb(0,0,255)',
-        weight: 3
-    }
-};
+var tileWeights = TileType.map({
+    GRASS: 40,
+    TREE: 2,
+    WATER: 3
+});
 
 function generate(w, h) {
-    var totalWeight = 0;
-    var type;
+    var i;
 
-    for (type in TERRAIN) {
-        totalWeight += TERRAIN[type].weight;
-    }
+    var totalWeight = 0;
+    for (i = 0; i < TileType.values.length; i++)
+        totalWeight += tileWeights.get(TileType.values[i]);
 
     var land = [];
     for (var r = 0; r < h; r++) {
         var landRow = [];
         for (var c = 0; c < w; c++) {
             var randomChoice = totalWeight * Math.random();
-            for (type in TERRAIN) {
-                randomChoice -= TERRAIN[type].weight;
-                if (randomChoice < 0) {
+            for (i = 0; i < TileType.values.length; i++) {
+                randomChoice -= tileWeights.get(TileType.values[i]);
+                if (randomChoice < 0)
                     break;
-                }
             }
-            landRow.push(TERRAIN[type]);
+            landRow.push(TileType.values[i]);
         }
         land.push(landRow);
     }
