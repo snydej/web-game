@@ -2,7 +2,7 @@
 (function() {
 
 var canvas = document.getElementById('canvas');
-var land = generate(20, 20);
+var land = generateTerrain(20, 20);
 render(canvas, land);
 
 })();

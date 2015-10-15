@@ -8,7 +8,7 @@ var tileWeights = TileType.map({
     WATER: 3
 });
 
-function generate(w, h) {
+function generateTerrain(w, h) {
     var i;
 
     var totalWeight = 0;
