@@ -1,8 +1,30 @@
-h1 {
+body {
     font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 1.25em;
+    margin: 0px;
+}
+
+#resource-pane {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#resource-content {
+    border-style: solid;
+    border-width: 1px;
+    width: 300px;
 }
 
 canvas {
     border-style: solid;
     border-width: 1px;
+    vertical-align: top;
+}
+
+#debug {
+    background-color: #f88;
+    padding: 5px;
 }
