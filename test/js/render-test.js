@@ -50,4 +50,10 @@ QUnit.test('apply function to 2x2 terrain', function(assert) {
     ]);
 });
 
+QUnit.test('resource content', function(assert) {
+    var resources = { wood: 42 };
+    var html = resourceContent(resources);
+    assert.equal(html, 'Wood: 42');
+});
+
 })();

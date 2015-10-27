@@ -1,11 +1,11 @@
 'use strict';
 
-function resourceContent(gameState) {
-    return 'Wood: ' + gameState.wood;
+function resourceContent(resources) {
+    return 'Wood: ' + resources.wood;
 }
 
-function renderResources(resoursesDiv, gameState) {
-    resoursesDiv.innerHTML = resourceContent(gameState);
+function renderResources(resoursesDiv, resources) {
+    resoursesDiv.innerHTML = resourceContent(resources);
 }
 
 function fillRect(ctx, view, x, y, w, h) {
@@ -47,7 +47,7 @@ function createViewOfTerrain(canvas, terrain) {
 }
 
 function render(canvas, resoursesDiv, gameState) {
-    renderResources(resoursesDiv, gameState);
+    renderResources(resoursesDiv, gameState.resources);
 
     var terrain = gameState.terrain;
     var view = createViewOfTerrain(canvas, terrain);

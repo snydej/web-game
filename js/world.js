@@ -35,5 +35,5 @@ function generateTerrain(w, h) {
 
 function GameState(terrain) {
     this.terrain = terrain;
-    this.wood = 0;
+    this.resources = { wood: 0 };
 }
