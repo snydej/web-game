@@ -32,3 +32,8 @@ function generateTerrain(w, h) {
 
     return land;
 }
+
+function GameState(terrain) {
+    this.terrain = terrain;
+    this.wood = 0;
+}

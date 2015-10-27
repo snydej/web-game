@@ -31,7 +31,8 @@ function renderTerrain(context, view, terrain) {
     applyTerrain(renderTerrainTile(context, view), terrain);
 }
 
-function render(canvas, terrain) {
+function render(canvas, gameState) {
+    var terrain = gameState.terrain;
     var terrainHeight = terrain.length;
     var terrainWidth = terrain[0].length;
     var view = new View(0, terrainWidth, 0, terrainHeight,

@@ -2,7 +2,7 @@
 (function() {
 
 var canvas = document.getElementById('canvas');
-var land = generateTerrain(20, 20);
-render(canvas, land);
+var gameState = new GameState(generateTerrain(20, 20));
+render(canvas, gameState);
 
 })();
