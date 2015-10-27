@@ -1,5 +1,13 @@
 'use strict';
 
+function resourceContent(gameState) {
+    return 'Wood: ' + gameState.wood;
+}
+
+function renderResources(resoursesDiv, gameState) {
+    resoursesDiv.innerHTML = resourceContent(gameState);
+}
+
 function fillRect(ctx, view, x, y, w, h) {
     ctx.fillRect(view.transX(x), view.transY(y),
         view.transWidth(w), view.transHeight(h));
@@ -31,13 +39,18 @@ function renderTerrain(context, view, terrain) {
     applyTerrain(renderTerrainTile(context, view), terrain);
 }
 
-function render(canvas, gameState) {
-    var terrain = gameState.terrain;
+function createViewOfTerrain(canvas, terrain) {
     var terrainHeight = terrain.length;
     var terrainWidth = terrain[0].length;
-    var view = new View(0, terrainWidth, 0, terrainHeight,
+    return new View(0, terrainWidth, 0, terrainHeight,
             canvas.width, canvas.height);
+}
 
+function render(canvas, resoursesDiv, gameState) {
+    renderResources(resoursesDiv, gameState);
+
+    var terrain = gameState.terrain;
+    var view = createViewOfTerrain(canvas, terrain);
     var context = canvas.getContext('2d');
     renderTerrain(context, view, terrain);
 }
